@@ -1,13 +1,13 @@
 package br.com.baleco.cursomc.domain.enums;
 
-public enum TipoCliente {
+public enum StatusPagamento {
 
-	PESSOAFISICA(1, "Pessoa Física"), PESSOAJURIDICA(2, "Pessoa Jurídica");
+	PENDENTE(1, "Pendente"), QUITADO(2, "Quiatado"), CANCELADO(3, "Cancelado");
 
 	private int cod;
 	private String descricao;
 
-	private TipoCliente(int cod, String descricao) {
+	private StatusPagamento(int cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 
@@ -21,13 +21,13 @@ public enum TipoCliente {
 		return descricao;
 	}
 
-	public static TipoCliente toEnum(Integer cod) {
+	public static StatusPagamento toEnum(Integer cod) {
 
 		if (cod == null) {
 			return null;
 		}
 
-		for (TipoCliente x : TipoCliente.values()) {
+		for (StatusPagamento x : StatusPagamento.values()) {
 			if (cod.equals(x.getCod())) {
 				return x;
 			}
