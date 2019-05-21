@@ -15,14 +15,14 @@ import br.com.baleco.cursomc.domain.enums.StatusPagamento;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pagamento implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	private Integer id;
 
 	private Integer statusPagamento;
-	
+
 	@OneToOne
 	@JoinColumn(name = "pedido_id")
 	@MapsId
@@ -32,16 +32,12 @@ public abstract class Pagamento implements Serializable {
 
 	}
 
-	
-
 	public Pagamento(Integer id, StatusPagamento statusPagamento, Pedido pedido) {
 		super();
 		this.id = id;
 		this.statusPagamento = statusPagamento.getCod();
 		this.pedido = pedido;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -91,7 +87,5 @@ public abstract class Pagamento implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }
