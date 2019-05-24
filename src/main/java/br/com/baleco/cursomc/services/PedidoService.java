@@ -11,13 +11,13 @@ import br.com.baleco.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PedidoService {
-	
+
 	@Autowired
 	private PedidoRepository repo;
-	
-	public Pedido buscar(Integer id) {
+
+	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName())); 
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName()));
 	}
 }
